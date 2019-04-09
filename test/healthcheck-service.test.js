@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import {initServer} from 'uveye-web-engine'
+import {initServer} from 'web-engine'
 import request from 'request'
 const base = 'http://localhost:1234'
 

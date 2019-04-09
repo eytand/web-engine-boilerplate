@@ -13,7 +13,7 @@
   "author": "uveye inc.",
   "license": "ISC",
   "dependencies": {
-    "uveye-web-engine": "*"
+    "web-engine": "*"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",

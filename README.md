@@ -1,10 +1,9 @@
-## @NAME@
+## Repository: @NAME@
 
-@DESC@
+Description: @DESC@
 
 ## Requirements
-* logged in to our npm repository(nexus , using npm login)
-* Node 8
+* Node 8+
 * esm - The framework is coded ES6 module style, be sure to use `node -r esm <your-service>` when running. esm can be installed globally
 
 ```bash
@@ -19,7 +18,7 @@ npm i pm2 -g
 
 ## Installation
 
-the installation script will initiate and push a new repository to bitbucket
+the installation script will initiate and push a new repository to github
 
 - run the `repo-ini.sh` and follow the instructions 
 
@@ -32,7 +31,7 @@ the installation script will initiate and push a new repository to bitbucket
 
     `@DESC` - repository description 
    
-when the script is done a new folder based on repository name will be created with initiated git repo
+when the script is done a new folder based on the repository name will be created with an initiated git repo
 
 ***if there are erros during instllation please do the following steps manually:***
 
@@ -48,21 +47,17 @@ when the script is done a new folder based on repository name will be created wi
 
 6 git commit -m "initiate repo_name repo"
 
-7 git remote add origin git@bitbucket.org:uveyeinc/repo_name.git
+7 git remote add origin $GITHUB_ACCOUNT/repo_name.git
 
 8 git push -u origin master
 
 
 
 ## Dependencies
-- The microservice is based on uveye-web-engine 
+- The microservice is based on web-engine https://github.com/eytand/web-engine 
 - Microservice has to implement "HealthcheckService" 
 
-## uveye-node-image
-this microserivce image is based on uveye-node-image repository contains the basic functionaliy (such as pm2-node-alphine-8 and filebeat service).
 
-(`FROM devsrv:5000/web/uveye-node:v0.6.0-X`) -
-https://bitbucket.org/uveyeinc/uveye-node-image/src/develop/
 ## Healthcheck
 
 For debugging health checks, the Docker inspect command lets you view the output of commands that succeed or fail (here in JSON format):
@@ -73,7 +68,7 @@ For debugging health checks, the Docker inspect command lets you view the output
 Or run :
 ```docker inspect --format='{{json .State.Health}}' your-container-name```
 
-You can find instruction here :
+You can find instructions here :
 https://blog.newrelic.com/2016/08/24/docker-health-check-instruction/
 
 
@@ -91,11 +86,9 @@ start the app from a configuration file:
 
 process.yml - a configuration file for pm2 
 
-```npm_package_name:  ${name} ```  - will be replaced byproject( key = name) name from package.json
+```npm_package_name:  ${name} ```  - will be replaced by project( key = name) name from package.json
 
-``` npm_package_version: ${version} ``` - will be replaced byversion number ( key = version)  from package.json
-
-** a bash script that copy and replace the process.yml based on process-template.yml will be run during the build process
+``` npm_package_version: ${version} ``` - will be replaced by version number ( key = version)  from package.json
 
 
 ### watch and autorestart

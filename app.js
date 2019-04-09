@@ -1,4 +1,4 @@
-import { initServer } from 'uveye-web-engine'
+import { initServer } from 'web-engine'
 
 var {app, container} = initServer()
 

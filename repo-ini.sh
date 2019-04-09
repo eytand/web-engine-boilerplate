@@ -7,10 +7,9 @@ read repository
 echo new repository description
 read description
 
-echo please create a new repository here https://bitbucket.org/repo/create?owner=uveyeinc  with the name : $repository ,
-echo choose "Web" under project
+echo please create a new repository in your git account with the name : $repository ,
 
-echo make sure you have ssh public key installed in bitbucket
+echo make sure you have ssh public key installed in github
 echo make sure repository has been created and press enter to continue 
 
 read
@@ -23,11 +22,11 @@ rm -f package.json--backup README.md--backup .env--backup
 echo add your code to a remote branch
 git add .
 git commit -m "initiate $repository repo"
-git remote add origin git@bitbucket.org:uveyeinc/$repository.git
+git remote add origin $GITHUB_ACCOUNT/$repository.git
 git push -u origin master
 
 npm install 
-npm update uveye-web-engine --always-auth=true
+npm update web-engine --always-auth=true
 
 echo "rename your directory"
 cd . || return

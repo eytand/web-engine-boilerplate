@@ -1,0 +1,11 @@
+/app/logs/app.log {
+    dateext
+    dateformat .%Y-%m-%d-%H-%M-%S
+    extension .log
+    daily
+    copytruncate
+    rotate 20
+    missingok
+    size 50M
+    delaycompress
+}
